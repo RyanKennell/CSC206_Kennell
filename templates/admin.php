@@ -52,13 +52,13 @@ require_once(FS_TEMPLATES . 'admin.php');
 			foreach($_GET as $key => $value){
 				echo substr($key, 13, 1);
 				if (substr($key, 6, 4) == "edit"){
-					$this->id = (int) substr($key, 11, 1);
+					$this->id = (int) substr($key, 11, 2);
 					$this->title = $stories[$this->id - 1]['title'];
 					$this->content = $stories[$this->id - 1]['content'];
 					$this->picture = $stories[$this->id - 1]['image'];
 				}
 				if(substr($key, 6, 6) == "delete"){
-					$u->delete((int) substr($key, 13, 1));
+					$u->delete((int) substr($key, 13, 2));
 					header("Refresh:0; url=?admin");
 				}
 				

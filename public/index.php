@@ -163,17 +163,18 @@ If Democrats and their allies in the media want to campaign on their support of 
 			*/
 			
 			$storiesFromDatabase = $u->update()->fetchAll();
-	
+		
 			$index = -1;
-			foreach($stories as $story){
+			$counter = 0;
+			foreach($storiesFromDatabase as $story){
 				$id = $story['id'];
 				if (!empty($_GET['id']) && $_GET['id'] == $id) {
-					$index = $id;
+					$index = $counter;
 				}
+				$counter ++;
 			}
 			
 
-			
 			if($index == -1){
 				$content = new highlightedPostsTemplate();
 				$modifiedStories = $storiesFromDatabase;
@@ -183,7 +184,7 @@ If Democrats and their allies in the media want to campaign on their support of 
 				echo $content->data($modifiedStories)->renderList() . "</div>";
 			}else{
 				$post = new postTemplate();
-				$post->drawContent($stories[$index - 1]);
+				$post->drawContent($storiesFromDatabase[$index]);
 			}
 			    // Load page footer
 	
