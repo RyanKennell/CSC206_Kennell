@@ -157,7 +157,7 @@ class MySQLResult
             return $row;
         } else if ($this->size() > 0) {
             $this->result->data_seek(0);
-
+			echo "HERE";
             return false;
         } else {
             return false;

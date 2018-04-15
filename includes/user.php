@@ -17,7 +17,7 @@ class User
      */
     private $db = null;
 
-    private $table = users;
+    private $table = 'users';
     /**
      * List of valid fields and their types for this table
      *
@@ -50,7 +50,6 @@ class User
     public function __construct($db)
     {
         $this->db = $db;
-        $this->table = ''
     }
 
 
@@ -60,10 +59,10 @@ class User
      * @param $id
      * @return mixed
      */
-    public function getUser($id)
+    public function getUser($username, $password)
     {
 
-        $sql = 'select * from ' . $this->table .' where id = ' . $id . ';';
+        $sql = 'select * from ' . $this->$table . 'where email = \'' . $username . '\' and password = \'' . $password . '\';';
 
         $result = $this->db->query($sql);
 
