@@ -17,7 +17,7 @@ class mainFooterTemplate extends templateEngine
       <!-- /.container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript -->>
+    <!-- Bootstrap core JavaScript -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>

@@ -15,15 +15,15 @@ require_once(FS_TEMPLATES . 'mainFooterTemplate.php');
 require_once(FS_INCLUDES . 'user.php');
 
 
-// Load page header
 $header = new mainHeaderTemplate();
+$content = $header->addHeader();
+$header->setContent($content);
 echo $header->renderStatic();
-
 if ($requestType == 'GET') {
 
     // Show the Create User Form
     $form = new createUserTemplate();
-    echo $form->render();
+    echo $form->create();
 
 } else {
 
@@ -39,10 +39,5 @@ if ($requestType == 'GET') {
     header('Location: http://csc206dev.com/index.php');
 
 }
-
-
-// Load page header
-$footer = new mainFooterTemplate();
-echo $footer->renderStatic();
 
 
